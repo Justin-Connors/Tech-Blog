@@ -1,0 +1,10 @@
+
+{{#each users}}
+  {{#each blog_posts}}
+    <div>
+      <h2>{{this.title}}</h2>
+      <p>By {{../name}}</p>
+      <p>{{this.body}}</p>
+    </div>
+  {{/each}}
+{{/each}}

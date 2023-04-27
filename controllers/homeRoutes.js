@@ -11,14 +11,15 @@ router.get('/', withAuth, async (req, res) => {
       include: [
         {
           model: BlogPost,
-          attributes: ['id', 'title', 'author', 'body', 'created_at'],
+          attributes: ['title', 'author', 'body'],
         },
       ],
     });
 
     const users = userData.map((user) => user.get({ plain: true }));
-
+    console.log(users);
     res.render('homepage', {
+      username: req.session.username,
       users,
       logged_in: req.session.logged_in,
     });
